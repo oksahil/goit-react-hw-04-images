@@ -22,9 +22,6 @@ class PostFind extends Component {
         postDetailes: null,
     }
 
-    componentDidMount() {
-
-    }
     
     componentDidUpdate(prevProps, prevState) {
         const { find, page } = this.state;

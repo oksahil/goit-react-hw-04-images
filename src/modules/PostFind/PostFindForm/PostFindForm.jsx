@@ -31,35 +31,22 @@ class PostFindForm extends Component {
         const {find} = this.state;
         const {handleChange, handleSubmit} = this;
         return (
-            // <form className={css.form} onSubmit={handleSubmit}>
-            //     <div className={css.findBar}>
-            //         <label className={css.labelText} htmlFor="">find</label>
-            //         <input
-            //             name="find"
-            //             value={find}
-            //             onChange={handleChange}
-            //             placeholder="find"
-            //             required />
-            //     </div>
-            // </form>
-<header className={css.findBar}>
-  <form className={css.form} onSubmit={handleSubmit}>
-    <button type="submit" className={css.findFormBtn}>
-      <span className={css.labelText}>Search</span>
-    </button>
+            <header className={css.findBar}>
+                <form className={css.form} onSubmit={handleSubmit}>
+                    <button type="submit" className={css.findFormBtn}>
+                    <span className={css.labelText}>Search</span>
+                    </button>
 
-    <input
-        className={css.findFormInput}
-        name="find"
-        value={find}
-        onChange={handleChange}
-        type="text"
-
-        
-        placeholder="Search photos"
-    />
-  </form>
-</header>
+                <input
+                    className={css.findFormInput}
+                    name="find"
+                    value={find}
+                    onChange={handleChange}
+                    type="text"
+                    placeholder="Search photos"
+                />
+                </form>
+            </header>
         )
     }
 }

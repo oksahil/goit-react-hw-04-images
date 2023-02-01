@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import css from "./button.module.css";
 
 const Button = ({children, onClick, type}) => {
-    // console.log(children);
     return <button onClick={onClick} className={css.btn} type={type}>{children}</button>
 }
 

@@ -3,18 +3,20 @@ import PropTypes from 'prop-types';
 import css from "./postFindItem.module.css";
 
 
-function PostFindItem({webformatURL,tags}) {
+function PostFindItem({webformatURL, id, onClick, tags}) {
   return (
-    <>
-        <img className={css.imgCard} src={webformatURL} alt={tags} />
-    </>
+        <>
+          <li key={id} onClick={onClick} className={css.item}>
+          <img className={css.imgCard} src={webformatURL} alt={tags} />
+           </li>
+        </>
     );
 }
 
 export default PostFindItem;
 
 PostFindItem.propTypes = {
-    friendName: PropTypes.string.isRequired,
-    avatarUrl: PropTypes.string.isRequired,
-    status: PropTypes.bool.isRequired,
+    onClick: PropTypes.func.isRequired,
+    webformatURL: PropTypes.string.isRequired,
+    tags: PropTypes.string.isRequired,
 };
