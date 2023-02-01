@@ -18,7 +18,6 @@ class Modal extends Component {
         return (
             createPortal(<div className={css.overlay} onClick={closeModal}>
                 <div className={css.modal}>
-                    {/* <span className={css.close} onClick={close}>X</span> */}
                     { children }
                 </div>
             </div>, modalRoot)
