@@ -4,7 +4,6 @@ import { createPortal } from "react-dom";
 import css from "./modal.module.css";
 
 const modalRoot = document.querySelector("#modal-root");
-console.log(modalRoot);
 
 class Modal extends Component {
     closeModal = ({ target, currentTarget }) => {

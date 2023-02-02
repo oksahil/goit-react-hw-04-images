@@ -17,7 +17,7 @@ class PostFindForm extends Component {
         e.preventDefault();
         const {onSubmit} = this.props;
         onSubmit({...this.state});
-        this.reset()
+        // this.reset();
     }
 
     reset(){

@@ -46,7 +46,9 @@ class PostFind extends Component {
 }
 
     searchPost = ({ find}) => {
-        this.setState({ find, items: [],  page: 1 });
+       if (find !== this.state.find) {
+            this.setState({ find, items: [], page: 1 });
+        }
     }
     
     loadMore = () => {
@@ -71,15 +73,16 @@ class PostFind extends Component {
     }
 
     render() {
-        const { items, loading, error, showModal, postDetailes} = this.state;
+        const { items, loading, error, showModal, postDetailes, find} = this.state;
         const { searchPost, loadMore, showPost, closeModal } = this;
         return (
             <>
                 <PostFindForm onSubmit={searchPost} />
+                {(!find || items.length === 0) && <Message message="Please enter a valid keyword to search for photos." />}
+                {error && <Message message="Sorry... No results were found for this query! 
+                                            Perhaps you are sending an empty request. Please enter a keyword to search." />}
                 {loading && <Loader className={css.loader} />}
                 <PostFindList showPost={showPost} items={items} />
-                {error && <Message className={css.errorMessage} message={error.message} />}
-                
                 {Boolean(items.length) && <Button onClick={loadMore}>Load more...</Button>}
                 {showModal && <Modal close={closeModal}><PostDetailes {...postDetailes} /></Modal>}
             </>

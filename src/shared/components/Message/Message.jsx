@@ -1,6 +1,6 @@
 import PropTypes from "prop-types";
 
-import css from "./massage.module.css";
+import css from "./message.module.css";
 
 const Message = ({ message }) => {
     return(
