@@ -1,35 +1,31 @@
-import { Component } from "react";
+import { useState } from "react";
 import PropTypes from "prop-types";
+
+import initialState from "./initialState";
 
 import css from "./postFindForm.module.css"
 
-class PostFindForm extends Component {
-    state = {
-        find: "",
+const PostFindForm = ({ onSubmit}) => {
+ const [state, setState] = useState({ ...initialState });
+
+const handleChange = ({target}) => {
+    const { name, value } = target;
+    setState(prevState => {
+        return { ...prevState, [name]: value };
+    })
+}
+
+const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    const resultSubmit = onSubmit(({...state}));
+        if(resultSubmit) {
+            setState({ ...initialState });
+        }
     }
+    
+const {find} = state;
 
-    handleChange = ({ target }) => {
-        const { name, value } = target;
-        this.setState({ [name]: value });
-    }
-
-    handleSubmit = (e) => {
-        e.preventDefault();
-        const {onSubmit} = this.props;
-        onSubmit({...this.state});
-        // this.reset();
-    }
-
-    reset(){
-        this.setState({
-            find: "",
-        })
-    }
-
-
-    render() {
-        const {find} = this.state;
-        const {handleChange, handleSubmit} = this;
         return (
             <header className={css.findBar}>
                 <form className={css.form} onSubmit={handleSubmit}>
@@ -48,7 +44,6 @@ class PostFindForm extends Component {
                 </form>
             </header>
         )
-    }
 }
 
 export default PostFindForm;
