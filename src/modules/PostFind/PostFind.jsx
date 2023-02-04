@@ -41,8 +41,8 @@ const PostFind = () => {
     
 },[find, page, setLoading, setItems, setError])
 
-const onSearchPost = (prevFind, find) => {
-    if (prevFind !== find) {
+const onSearchPost = (value, find) => {
+    if (value !== find) {
         setFind(find);
         setItems([]);
         setPage(1);
