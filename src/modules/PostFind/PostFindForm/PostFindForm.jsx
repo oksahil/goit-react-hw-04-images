@@ -24,7 +24,7 @@ const handleSubmit = (e) => {
         }
     }
     
-const {find} = state;
+const find = state;
 
         return (
             <header className={css.findBar}>
