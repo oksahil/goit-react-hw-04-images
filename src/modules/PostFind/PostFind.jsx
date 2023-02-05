@@ -20,8 +20,15 @@ const PostFind = () => {
     const [showModal, setShowModal] = useState(false);
     const [postDetailes, setPostDetailes] = useState(null);
 
+const searchPost = (find) => {
+ 
+        setFind(find);
+        setItems([]);
+        setPage(1);
+   
+    }      
     useEffect(() => {
-
+        console.log(find);
         if (!find) {
             return;
         }
@@ -41,13 +48,7 @@ const PostFind = () => {
             fetchPost();
         },[find, page, setLoading, setItems, setError])
 
-const onSearchPost = (find) => {
  
-        setFind(find);
-        setItems([]);
-        setPage(1);
-   
-    }   
     
 const showPost = ({id, largeImageURL }) => {
     setPostDetailes({ id, largeImageURL });
@@ -65,7 +66,7 @@ const closeModal = () => {
     
     return (
         <>
-            <PostFindForm onSubmit={onSearchPost} />
+            <PostFindForm onSubmit={searchPost} />
             {(!find || items.length === 0) && <Message message="Please enter a valid keyword to search for photos." />}
             {error && <Message message="Sorry... No results were found for this query! 
                                             Perhaps you are sending an empty request. Please enter a keyword to search." />}
