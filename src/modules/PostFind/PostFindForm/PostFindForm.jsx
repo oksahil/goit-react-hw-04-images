@@ -17,11 +17,8 @@ const handleChange = ({target}) => {
 
 const handleSubmit = (e) => {
     e.preventDefault();
-    
-    const resultSubmit = onSubmit(({...state}));
-        if(resultSubmit) {
-            setState({ ...initialState });
-        }
+    onSubmit({...state});
+    setState({ ...initialState });
     }
     
     const { find } = state;
@@ -39,7 +36,8 @@ const handleSubmit = (e) => {
                     value={find}
                     onChange={handleChange}
                     type="text"
-                    placeholder="Search photos"
+                        placeholder="Search photos"
+                        required 
                 />
                 </form>
             </header>

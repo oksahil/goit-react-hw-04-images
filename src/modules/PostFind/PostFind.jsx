@@ -22,7 +22,9 @@ const PostFind = () => {
 
     useEffect(() => {
 
-        if (find) {
+        if (!find) {
+            return;
+        }
         const fetchPost = async() => {
             try {
                 setLoading(true);
@@ -37,11 +39,9 @@ const PostFind = () => {
                 }    
             }  
             fetchPost();
-        }
-    
-},[find, page, setLoading, setItems, setError])
+        },[find, page, setLoading, setItems, setError])
 
-const onSearchPost = (value, find) => {
+const onSearchPost = (value) => {
     if (value !== find) {
         setFind(find);
         setItems([]);
