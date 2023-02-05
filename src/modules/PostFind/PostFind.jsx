@@ -41,12 +41,12 @@ const PostFind = () => {
             fetchPost();
         },[find, page, setLoading, setItems, setError])
 
-const onSearchPost = (value) => {
-    if (value !== find) {
+const onSearchPost = (find) => {
+ 
         setFind(find);
         setItems([]);
         setPage(1);
-        }
+   
     }   
     
 const showPost = ({id, largeImageURL }) => {
