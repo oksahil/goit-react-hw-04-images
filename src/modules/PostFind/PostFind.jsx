@@ -1,4 +1,6 @@
 import { useState, useEffect } from "react";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css'
 
 import Modal from "shared/components/Modal/Modal";
 import {searchPosts} from '../../shared/services/postsApi';
@@ -20,15 +22,19 @@ const PostFind = () => {
     const [showModal, setShowModal] = useState(false);
     const [postDetailes, setPostDetailes] = useState(null);
 
-const searchPost = (find) => {
- 
-        setFind(find);
+const searchPost = (findTarg) => {
+ if(findTarg === find) {
+    toast.error('Please enter another request.');
+    return;
+  }
+        setFind(findTarg);
         setItems([]);
         setPage(1);
    
-    }      
+    }   
+    
+
     useEffect(() => {
-        console.log(find);
         if (!find) {
             return;
         }
@@ -74,6 +80,18 @@ const closeModal = () => {
             <PostFindList showPost={showPost} items={items} />
             {Boolean(items.length) && <Button onClick={loadMore}>Load more...</Button>}
             {showModal && <Modal close={closeModal}><PostDetailes {...postDetailes} /></Modal>}
+            <ToastContainer
+                    position="top-left"
+                    autoClose={3000}
+                    hideProgressBar={false}
+                    newestOnTop={false}
+                    closeOnClick
+                    rtl={false}
+                    pauseOnFocusLoss
+                    draggable
+                    pauseOnHover
+                    theme="colored"
+            />
         </>
     )    
 }
