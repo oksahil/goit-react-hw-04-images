@@ -2,11 +2,13 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 
 import initialState from "./initialState";
+// import useForm from "shared/hooks/useForm";
 
 import css from "./postFindForm.module.css"
 
 const PostFindForm = ({ onSubmit }) => {
-    const [state, setState] = useState({ ...initialState });
+    // const [state, handleChange, handleSubmit] = useForm({initialState, onSubmit });
+        const [state, setState] = useState({ ...initialState });
 
 const handleChange = ({target}) => {
     const { name, value } = target;
@@ -17,8 +19,8 @@ const handleChange = ({target}) => {
 
         const handleSubmit = (e) => {
             e.preventDefault();
-            onSubmit(find);
-        };
+            onSubmit(({...state}));
+    };
         const { find } = state;
         return (
             <header className={css.findBar}>
