@@ -19,7 +19,7 @@ const handleChange = ({target}) => {
 
         const handleSubmit = (e) => {
             e.preventDefault();
-            onSubmit(({...state}));
+            onSubmit(find);
     };
         const { find } = state;
         return (

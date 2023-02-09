@@ -51,7 +51,7 @@ useEffect(() => {
                 }    
             }  
             fetchPost();
-        },[find, page, setLoading, setItems, setError])
+        },[find, page])
 
  
     
