@@ -6,23 +6,20 @@ import PropTypes from "prop-types";
 import css from "./postFindForm.module.css"
 
 const PostFindForm = ({ onSubmit}) => {
- const [find, setFind] = useState("");
+    const [find, setFind] = useState("");
 
- const handleChange = ({target}) => {
-    const {value} = target;
-    setFind(value);
-  };
+    const handleChange = ({target}) => {
+        const {value} = target;
+        setFind(value);
+    };
 
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-      onSubmit(find);
-     
-  };
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        onSubmit(find);
+    };
     
-
-
-        return (
+    return (
             <header className={css.findBar}>
                 <form className={css.form} onSubmit={handleSubmit}>
                     <button type="submit" className={css.findFormBtn}>
@@ -40,7 +37,7 @@ const PostFindForm = ({ onSubmit}) => {
                 />
                 </form>
             </header>
-        )
+            )
 }
 
 export default PostFindForm;

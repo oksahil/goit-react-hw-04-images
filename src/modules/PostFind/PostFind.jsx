@@ -23,19 +23,17 @@ const PostFind = () => {
     const [showModal, setShowModal] = useState(false);
     const [postDetailes, setPostDetailes] = useState(null);
 
-const searchPost = (findTarg) => {
- if(findTarg === find) {
-    toast.error('Please enter another request.');
-    return;
-  }
-        setFind(findTarg);
+const searchPost = (findCurrent) => {
+    if (findCurrent === find) {
+        toast.error('Please enter another request.');
+        return;
+        }
+        setFind(findCurrent);
         setItems([]);
         setPage(1);
-   
     }   
     
-
-    useEffect(() => {
+useEffect(() => {
         if (!find) {
             return;
         }
@@ -71,11 +69,13 @@ const closeModal = () => {
     setShowModal(false);
     setPostDetailes(null);
 }
-  function scrolling() {
+
+function scrolling() {
     const scrollPhoto = Scroll.animateScroll;
     scrollPhoto.scrollMore(560);
   }    
-    return (
+    
+return (
         <>
             <PostFindForm onSubmit={searchPost} />
             {(!find || items.length === 0) && <Message message="Please enter a valid keyword to search for photos." />}
