@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { ToastContainer, toast } from 'react-toastify';
+import * as Scroll from 'react-scroll';
 import 'react-toastify/dist/ReactToastify.css'
 
 import Modal from "shared/components/Modal/Modal";
@@ -63,13 +64,17 @@ const showPost = ({id, largeImageURL }) => {
 
 const loadMore = () => {
     setPage((prevPage) => (prevPage + 1));
+    scrolling();
 }
 
 const closeModal = () => {
     setShowModal(false);
     setPostDetailes(null);
 }
-    
+  function scrolling() {
+    const scrollPhoto = Scroll.animateScroll;
+    scrollPhoto.scrollMore(560);
+  }    
     return (
         <>
             <PostFindForm onSubmit={searchPost} />
