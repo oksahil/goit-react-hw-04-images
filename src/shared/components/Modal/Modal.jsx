@@ -27,3 +27,8 @@ const Modal = ({ close, children }) => {
 }
 
 export default Modal;
+
+Modal.propTypes = {
+    close: PropTypes.func.isRequired,
+    children: PropTypes.node,
+};
